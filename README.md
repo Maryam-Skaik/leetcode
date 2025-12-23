@@ -9,7 +9,7 @@
 ---
 
 Welcome to my **LeetCode Solutions Repository**! 💻  
-Here I practice solving coding problems **topic by topic**, and share my solutions with explanations in **Java**.  
+Here I practice solving coding problems **across different topics**, focusing on **patterns and problem-solving skills**, and share my solutions in **Java**.  
 
 ---
 
@@ -25,6 +25,8 @@ leetcode/
 ├── DP/ # Dynamic Programming problems
 └── README.md # This file
 ```
+
+> Each topic folder contains **subfolders by difficulty** (Easy / Medium / Hard) and **well-documented Java solutions**.
 
 ---
 
@@ -52,7 +54,8 @@ Example:
 
 ## 🎯 Goals
 
-- Solve problems **topic by topic**: Easy → Medium → Hard
+- Solve problems **mixing topics and difficulty levels**, not just one topic at a time
+- Focus on patterns, not total number of problems
 - Build a **daily coding habit** 📅
 - Document **patterns and approaches for reference**
 
@@ -60,9 +63,9 @@ Example:
 
 ## 🚀 Start Here
 
-Begin with the [`Arrays folder`](Arrays/)
- 📁, where I solve all array-related problems first.
-Each topic has **subfolders by difficulty** (Easy / Medium / Hard) and **well-documented Java solutions**.
+- Pick any topic and difficulty to start solving problems.
+- Focus on **representative problems for key patterns first** (e.g., Two Pointers, Sliding Window, Recursion).
+- Rotate topics regularly to **keep learning diverse patterns.**
 
 ---
 
