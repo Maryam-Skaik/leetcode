@@ -17,7 +17,7 @@ class ListNode {
     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
 
-public class 021_MergeTwoSortedLists {
+public class _021_MergeTwoSortedLists {
 
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         if(list1 == null) return list2;
