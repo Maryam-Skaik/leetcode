@@ -1,4 +1,4 @@
-package LinkedLists.Medium;
+package Recursion.Medium;
 
 /**
  * Problem: Add Two Numbers (Medium)
