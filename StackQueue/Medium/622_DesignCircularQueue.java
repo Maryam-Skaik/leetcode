@@ -1,4 +1,4 @@
-package Queue.Medium;
+package StackQueue.Medium;
 
 /**
  * Problem: Design Circular Queue (Medium)
