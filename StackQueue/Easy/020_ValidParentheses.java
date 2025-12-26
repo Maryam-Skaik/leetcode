@@ -1,4 +1,4 @@
-package Stack.Easy;
+package StackQueue.Easy;
 
 import java.util.Stack;
 
