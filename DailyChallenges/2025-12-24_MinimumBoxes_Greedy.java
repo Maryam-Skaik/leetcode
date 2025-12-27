@@ -27,7 +27,7 @@ import java.util.Arrays;
  * Space Complexity: O(1)
  */
 
-public class _2025_12_25_MinimumBoxes_Greedy {
+public class _2025_12_24_MinimumBoxes_Greedy {
 
     public static int minimumBoxes(int[] apple, int[] capacity) {
         int sum = 0;
