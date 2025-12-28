@@ -18,6 +18,7 @@ Here I practice solving coding problems **across different topics**, focusing on
 ```pgsql
 leetcode/
 ├── Arrays/ # Array problems (Easy / Medium / Hard)
+├── Strings/ # String problems (Easy / Medium / Hard)
 ├── LinkedLists/ # Linked List problems
 ├── StackQueue/ # Stack & Queue problems
 ├── Recursion/ # Recursion & Backtracking problems
