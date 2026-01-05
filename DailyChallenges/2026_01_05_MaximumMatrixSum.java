@@ -26,27 +26,22 @@ public class _2026_01_05_MaximumMatrixSum {
      * - If the count of negative numbers is odd, one element must remain negative.
      *   Choose the smallest absolute value to minimize loss.
      */
-    public static long maxMatrixSum(int[][] matrix) {
-        int min = Integer.MAX_VALUE;
-        int negativeCount = 0;
-        long sum = 0;
-
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                int val = matrix[i][j];
-                if (val < 0) negativeCount++;
-
-                int abs = Math.abs(val);
-                min = Math.min(min, abs);
-                sum += abs;
-            }
-        }
-
-        if (negativeCount % 2 != 0) {
-            sum -= 2L * min;
-        }
-
-        return sum;
+    public long maxMatrixSum(int[][] matrix) { 
+        int min = Integer.MAX_VALUE; 
+        int count = 0; long sum = 0; 
+        for (int i = 0; i < matrix.length; i++) { 
+            for (int j = 0; j < matrix[i].length; j++) { 
+                int val = matrix[i][j]; 
+                if (val < 0) count++; 
+                int abs = Math.abs(val); 
+                min = Math.min(min, abs); 
+                sum += abs; 
+            } 
+        } 
+        
+        if (count % 2 != 0) 
+            sum -= 2L * min; 
+        return sum; 
     }
 
     // Test examples
