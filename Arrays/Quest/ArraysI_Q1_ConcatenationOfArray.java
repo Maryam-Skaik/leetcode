@@ -14,7 +14,7 @@ package Arrays.Quest;
  * Space Complexity: O(n)
  */
 
-public class ArraysI_1929_ConcatenationOfArray {
+public class ArraysI_Q1_ConcatenationOfArray {
 
     public static int[] getConcatenation(int[] nums) {
         int n = nums.length;
