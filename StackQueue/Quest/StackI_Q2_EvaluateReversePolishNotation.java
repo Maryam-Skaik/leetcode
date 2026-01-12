@@ -1,4 +1,4 @@
-package Stack.Quest;
+package StackQueue.Quest;
 
 import java.util.Stack;
 
