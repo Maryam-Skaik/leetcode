@@ -16,7 +16,7 @@ import java.util.*;
  * Space Complexity: O(n) where n = number of functions
  */
 
-public class StackII_Q3_ExclusiveTimeOfFunctions {
+public class StackI_Q3_ExclusiveTimeOfFunctions {
 
     public static int[] exclusiveTime(int n, List<String> logs) {
         int[] res = new int[n];       // result array to store exclusive time of each function
