@@ -55,5 +55,74 @@ Dynamic Programming problems often fall into one of these categories:
 Return **true / false**
 
 **Example:**
+
 ```text
 canSum(targetSum, numbers)
+```
+
+**Question:**
+
+> Is it possible to reach the target?
+
+---
+
+### 2️⃣ Combinatoric Problems
+Return **any valid combination**
+
+**Example:**
+
+```text
+howSum(targetSum, numbers)
+```
+
+**Question:**
+
+> What is one way to reach the target?
+
+---
+
+### 3️⃣ Optimization Problems
+
+Return the **best** solution according to a rule
+
+(shortest, largest, minimum cost, etc.)
+
+**Example:**
+
+```text
+bestSum(targetSum, numbers)
+```
+
+**Question:**
+
+> What is the optimal way to reach the target?
+
+---
+
+## Key Observations
+
+- Recursive solutions often have **exponential time complexity**
+- Memoization reduces complexity by avoiding repeated work
+- Most DP problems follow the same structure:
+  - Base cases
+  - Recursive relation
+  - Memo storage
+
+---
+
+## Common DP Pattern Used in This Repo
+
+1. Solve recursively
+2. Identify repeated subproblems
+3. Add memo
+4. Improve time complexity
+
+---
+
+## Summary
+
+| Problem | Type         | Return Value  |
+| ------- | ------------ | ------------- |
+| canSum  | Decision     | boolean       |
+| howSum  | Combinatoric | List / Array  |
+| bestSum | Optimization | Shortest List |
