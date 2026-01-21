@@ -1,63 +1,157 @@
+/*
+ * ============================
+ * canSum — Tabulation (Bottom-Up DP)
+ * ============================
+ *
+ * Write a function `canSum(targetSum, numbers)` that takes:
+ * - targetSum: an integer
+ * - numbers: an array of non-negative integers
+ *
+ * The function returns a boolean indicating whether it is possible
+ * to generate the targetSum using numbers from the array.
+ *
+ * You may use an element of the array as many times as needed.
+ *
+ * Example:
+ * canSum(7, [5, 3, 4]) -> true
+ *
+ * ------------------------------------------------------------
+ * TABULATION IDEA (Bottom-Up)
+ * ------------------------------------------------------------
+ *
+ * We use a boolean table where:
+ *   table[i] = true  → it is possible to generate sum i
+ *   table[i] = false → it is NOT possible to generate sum i
+ *
+ * Table size = targetSum + 1
+ *
+ * Why +1?
+ * Because we need indices from 0 up to targetSum inclusive.
+ *
+ * ------------------------------------------------------------
+ * STEP 1: Initialize the table
+ * ------------------------------------------------------------
+ *
+ * For targetSum = 7
+ *
+ * index:  0 1 2 3 4 5 6 7
+ * table:  f f f f f f f f
+ *
+ * We start with all values = false
+ *
+ * ------------------------------------------------------------
+ * STEP 2: Seed the base case
+ * ------------------------------------------------------------
+ *
+ * canSum(0, numbers) = true
+ *
+ * This means:
+ * It is always possible to generate sum 0 (by choosing no numbers)
+ *
+ * So:
+ * table[0] = true
+ *
+ * index:  0 1 2 3 4 5 6 7
+ * table:  t f f f f f f f
+ *
+ * ------------------------------------------------------------
+ * STEP 3: Fill the table
+ * ------------------------------------------------------------
+ *
+ * We iterate from left to right over the table.
+ *
+ * For each index i:
+ *   - If table[i] == true
+ *     → we know sum i is reachable
+ *     → we try to add each number from the numbers array
+ *
+ * For each num in numbers:
+ *   - if (i + num <= targetSum)
+ *       table[i + num] = true
+ *
+ * Meaning:
+ * If I can reach i, then I can also reach (i + num)
+ *
+ * ------------------------------------------------------------
+ * EXAMPLE WALKTHROUGH
+ * ------------------------------------------------------------
+ *
+ * targetSum = 7
+ * numbers = [5, 3, 4]
+ *
+ * Start:
+ * index:  0 1 2 3 4 5 6 7
+ * table:  t f f f f f f f
+ *
+ * From index 0 (true):
+ *   0 + 5 = 5 → true
+ *   0 + 3 = 3 → true
+ *   0 + 4 = 4 → true
+ *
+ * index:  0 1 2 3 4 5 6 7
+ * table:  t f f t t t f f
+ *
+ * Index 1 → false → skip
+ * Index 2 → false → skip
+ *
+ * From index 3 (true):
+ *   3 + 5 = 8 → out of bounds → skip
+ *   3 + 3 = 6 → true
+ *   3 + 4 = 7 → true
+ *
+ * index:  0 1 2 3 4 5 6 7
+ * table:  t f f t t t t t
+ *
+ * Now table[7] == true
+ * → targetSum can be generated
+ *
+ * ------------------------------------------------------------
+ * FINAL ANSWER
+ * ------------------------------------------------------------
+ *
+ * Return table[targetSum]
+ *
+ * ------------------------------------------------------------
+ * COMPLEXITY
+ * ------------------------------------------------------------
+ *
+ * m = targetSum
+ * n = numbers.length
+ *
+ * Time Complexity:  O(m * n)
+ * Space Complexity: O(m)
+ *
+ */
 
-// Write a function 'canSum(targetSum, numbers)` that takes in a targetSum and an array of numbers as arguments.
+public class CanSumTabulation {
 
-// The function should return a boolean indicating whether or not it is possible to generate the targetSum using numbers from the array.
+    public static boolean canSum(int targetSum, int[] numbers) {
+        // table size = targetSum + 1 (to avoid off-by-one errors)
+        boolean[] table = new boolean[targetSum + 1];
 
-// You may use an element of the array as many times as needed.
+        // base case
+        table[0] = true;
 
-// You may assume that all input numbers are nonnigative.
+        for (int i = 0; i <= targetSum; i++) {
+            if (table[i]) {
+                // if sum i is reachable, try extending it
+                for (int num : numbers) {
+                    if (i + num <= targetSum) {
+                        table[i + num] = true;
+                    }
+                }
+            }
+        }
 
-// canSum(7, [5, 3, 4]) -> true
-// fisrt I will create and array of size of my targetSum + 1
-// we must return boolean, then I must store boolean in my array, start with false
+        return table[targetSum];
+    }
 
-// 0 1 2 3 4 5 6 7
-// f f f f f f f f
+    public static void main(String[] args) {
+        // small examples
+        System.out.println(canSum(7, new int[]{5, 3, 4})); // true
+        System.out.println(canSum(7, new int[]{2, 4}));    // false
 
-// ok, since canSum(0, [...]) -> true, so this our start, by make arr[0] = true
-// true here mean that it's possible to generate 0 using the numbers in the array, so we will fill the rest of the array accordingly.
-
-// 0 1 2 3 4 5 6 7
-// t f f f f f f f
-
-
-// then we will look to the first number in the array, which in our example is 5, so we can generate 5
-// 0 1 2 3 4 5 6 7
-// t f f f f t f f
-
-// so here we fill the position 0 + first number in the array, mean 0 + 5, and we will still adding 5 and make them t, since it's possible to generate them also
-// mean if I have index 10, with 5 + 5, then here I must fill it with True
-
-// let's loop and go to second number in our array which 3,
-// so will make index 3 = t, and 3 + 3 is also t which 6, mean we walk more 3 steps
-
-// 0 1 2 3 4 5 6 7
-// t f f t f t t f
-
-// same with last number in the array which 4
-
-// 0 1 2 3 4 5 6 7
-// t f f t t t t f
-
-//  after this we will loop and go to second index in our boolean array, which index 1, we find it contain false, mean that we can't generate 1 from elements in the numbers array
-// so I will skip and and keep iterate
-
-// go to index 2 which also contains false, skip it and continue iterate
-
-// we arrive to index , which contain true, that mean we can generate using the numbers array, so we will add the valuse from numbers array to this index,
-// first one is which is bigger than the rest of the array, so we will skip
-// and add 3, and 4 to 3, so indices 6 and 7 will become true
-
-// 0 1 2 3 4 5 6 7
-// t f f t t t t t
-
-// keep doing this process, at the end we have true at last index, mean we can generate true using numbers of array
-
-// complexity
-
-// m = targetSum 
-// n = numbers.length
-
-// time: O(mn)
-// space: O(m)
-
+        // large example (to show tabulation efficiency)
+        System.out.println(canSum(300, new int[]{7, 14})); // false
+    }
+}
