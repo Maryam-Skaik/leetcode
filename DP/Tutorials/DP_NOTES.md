@@ -1,7 +1,7 @@
 # Dynamic Programming Notes (Memoization – Top-Down)
 
 These notes summarize the core ideas and patterns used when solving
-Dynamic Programming problems using **memoization (top-down DP)**.
+Dynamic Programming problems using **memoization (top-down DP)** and **tabulation (Bottom-Up DP).**
 All examples in this repository follow this structure.
 
 ---
@@ -18,7 +18,7 @@ we store their results and reuse them.
 
 ---
 
-## Memoization Recipe (Top-Down DP)
+## Part 1: Memoization Recipe (Top-Down DP)
 
 This is the standard process used in all memoization problems.
 
@@ -126,3 +126,114 @@ bestSum(targetSum, numbers)
 | canSum  | Decision     | boolean       |
 | howSum  | Combinatoric | List / Array  |
 | bestSum | Optimization | Shortest List |
+
+
+---
+
+## Part 2: Tabulation (Bottom-Up DP)
+
+Tabulation is the **opposite direction** of memoization.
+- Memoization → **Top-Down** (problem → base cases)
+- Tabulation → **Bottom-Up** (base cases → final answer)
+
+No recursion is used.
+
+---
+
+### Step 1️⃣: Visualize the Problem as a Table
+
+- Each cell represents a **subproblem**
+- The final answer is usually found in the **last cell**
+
+Examples:
+
+- Fibonacci → 1D array
+- Grid Traveler → 2D array
+
+---
+
+### Step 2️⃣: Size the Table Based on Inputs
+
+- Fibonacci(n) → table size `n + 1`
+- gridTraveler(m, n) → table size `(m + 1) × (n + 1)`
+
+> Always be careful with **off-by-one errors**
+
+---
+
+### Step 3️⃣: Initialize the Table with Default Values
+
+- Arrays are initialized with `0` or `false`
+- These default values naturally represent **no ways / no contribution**
+
+This helps when adding values later.
+
+---
+
+### Step 4️⃣: Seed the Trivial Answer (Base Case)
+
+This is the most important step.
+
+Examples:
+- `fib(1) = 1`
+- `gridTraveler(1,1) = 1`
+
+This value starts the flow of the solution.
+
+---
+
+### Step 5️⃣: Iterate Through the Table
+
+- Use loops instead of recursion
+- Move left-to-right, top-to-bottom
+- Each cell contributes to future cells
+
+---
+
+### Step 6️⃣: Fill Future Positions Using Current Values
+
+At each cell:
+- Distribute its value to reachable next states
+
+Examples:
+- Fibonacci:
+`table[i] → table[i+1], table[i+2]`
+
+- Grid Traveler:
+`table[i][j] → table[i+1][j]` (down)
+`table[i][j] → table[i][j+1]` (right)
+
+---
+
+## Key Observations (Tabulation)
+
+- No recursion
+- No stack overflow risk
+- Very fast for large inputs
+- Table shows the entire DP process clearly
+- Often easier to debug than memoization
+
+---
+
+## Memoization vs Tabulation
+
+| Aspect              | Memoization | Tabulation       |
+| ------------------- | ----------- | ---------------- |
+| Direction           | Top-Down    | Bottom-Up        |
+| Uses recursion      | Yes         | No               |
+| Uses table          | Implicit    | Explicit         |
+| Stack overflow risk | Yes         | No               |
+| Easier to derive    | Yes         | Sometimes harder |
+| Easier to optimize  | Moderate    | High             |
+
+---
+
+## Final Takeaway
+
+- Memoization: think recursively, optimize later
+- Tabulation: think iteratively, build from base cases
+- Both solve the same class of DP problems
+- Choice depends on:
+  - Problem structure
+  - Input size
+  - Personal clarity
