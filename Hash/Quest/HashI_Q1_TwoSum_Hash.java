@@ -8,7 +8,7 @@ import java.util.HashMap;
  *
  * Source:
  * - data-structures-and-algorithms-quest
- * - Arrays I
+ * - Hash I
  *
  * Pattern: Hashing (HashMap) + Single Pass
  *
