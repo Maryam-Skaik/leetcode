@@ -1,4 +1,4 @@
-package Arrays.Quest;
+package Hash.Quest;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -9,7 +9,7 @@ import java.util.HashSet;
  *
  * Source:
  * - data-structures-and-algorithms-quest
- * - Arrays I
+ * - Hash I
  *
  * Idea:
  * 1) Sorting Approach:
@@ -26,7 +26,7 @@ import java.util.HashSet;
  *    - Space Complexity: O(n)
  */
 
-public class ArraysI_Q3_FirstMissingPositive {
+public class HashI_Q3_FirstMissingPositive {
 
     // ---------------- Sorting Approach ----------------
     public static int firstMissingPositive_Sort(int[] nums) {
