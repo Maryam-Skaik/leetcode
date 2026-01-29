@@ -12,12 +12,10 @@ public class _3467_TransformArrayByParity {
 
     public static int[] transformArray(int[] nums) {
         int oddcounter = 0;
-        int evencounter = 0;
 
-        // Count odd and even numbers
+        // Count odd numbers
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] % 2 == 0) evencounter++;
-            else oddcounter++;
+            if (nums[i] % 2 != 0) oddcounter ++;
         }
 
         int[] result = new int[nums.length];
