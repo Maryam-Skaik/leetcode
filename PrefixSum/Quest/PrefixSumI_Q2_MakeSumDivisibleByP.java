@@ -22,7 +22,7 @@ import java.util.HashMap;
  * Time Complexity: O(n)
  * Space Complexity: O(n)
  */
-public class PrefixSumII_Q2_MakeSumDivisibleByP {
+public class PrefixSumI_Q2_MakeSumDivisibleByP {
 
     public static int minSubarray(int[] nums, int p) {
         long totalSum = 0;
