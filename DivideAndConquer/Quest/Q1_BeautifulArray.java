@@ -14,7 +14,7 @@ package DivideAndConquer.Quest;
  * Space Complexity: O(n)
  */
 
-public class DivideAndConquer_Q1_BeautifulArray {
+public class Q1_BeautifulArray {
 
     public static int[] beautifulArray(int n) {
         return build(n);
